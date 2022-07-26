@@ -2,7 +2,9 @@ package br.com.dio.desafio;
 
 import java.time.LocalDate;
 
+import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
 public class Main {
@@ -24,9 +26,44 @@ public class Main {
 		mentoria.setData(LocalDate.now());
 
 		
-		System.out.println(curso1);
+		/*System.out.println(curso1);
 		System.out.println(curso2);
-		System.out.println(mentoria);
+		System.out.println(mentoria);*/
+		
+		Bootcamp bootcamp = new Bootcamp();
+		bootcamp.setName("Bootcamp Java Developer");
+		bootcamp.setDescrição("Descrição Bootcamp Java Developer");
+		bootcamp.getConteudos().add(curso1);
+		bootcamp.getConteudos().add(curso2);
+		bootcamp.getConteudos().add(mentoria);
+		
+		Dev devSarah = new Dev();
+		devSarah.setNome("Sarah Lee");
+		devSarah.inscreverBootcamp(bootcamp);
+		System.out.println("Conteúdos Inscritos Sarah Lee: " + devSarah.getConteudosInscritos());
+		devSarah.progredir();
+		devSarah.progredir();
+		System.out.println("-");
+		System.out.println("Conteúdos Inscritos Sarah Lee: " + devSarah.getConteudosInscritos());
+		System.out.println("Conteúdos Concluídos Sarah Lee: " + devSarah.getConteudosConcluidos());
+		System.out.println("XP: "+ devSarah.calcularTotalXp());
+		
+		System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+		
+		Dev devMiguel = new Dev();
+		devMiguel.setNome("Miguel Braga");
+		devMiguel.inscreverBootcamp(bootcamp);
+		System.out.println("Conteúdos Inscritos Miguel Braga: " + devMiguel.getConteudosInscritos());
+		devMiguel.progredir();
+		devMiguel.progredir();
+		devMiguel.progredir();
+		System.out.println("-");
+		System.out.println("Conteúdos Inscritos Miguel Braga: " + devMiguel.getConteudosInscritos());
+		System.out.println("Conteúdos Concluídos Miguel Braga: " + devMiguel.getConteudosConcluidos());
+		System.out.println("XP: "+ devMiguel.calcularTotalXp());
+		
+		
+		
 
 	}
 
